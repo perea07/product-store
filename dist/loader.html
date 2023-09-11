@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Tienda de Productos</title>
+    <style>
+        /* Estilos para el contenedor del efecto de carga */
+        .loader-container {
+            display: flex;
+            flex-direction: column; /* Alinea el texto y el círculo verticalmente */
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Estilos para el texto "Cargando" */
+        .loading-text {
+            font-size: 24px;
+            margin-bottom: 16px; /* Espacio entre el texto y el círculo de carga */
+        }
+
+        /* Estilos para el círculo de carga */
+        .loader {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 2s linear infinite; /* Animación de giro */
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Contenedor del efecto de carga -->
+    <div class="loader-container">
+        <!-- Título "Cargando" en inglés -->
+        <div class="loading-text">Loading...</div>
+        <!-- Círculo de carga -->
+        <div class="loader"></div>
+    </div>
+
+    <!-- El contenido de tu tienda de productos iría aquí (oculto mientras se carga) -->
+
+    <!-- Simula una espera de 3 segundos (puedes eliminar esto en tu sitio real) -->
+    <script>
+        setTimeout(function() {
+            // Elimina el efecto de carga y muestra el contenido real
+            document.querySelector(".loader-container").style.display = "none";
+            // Muestra el contenido de tu tienda de productos
+            document.body.style.overflow = "visible";
+        }, 3000);
+    </script>
+</body>
+</html>

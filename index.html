@@ -11,53 +11,75 @@
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="dist/css/app.css">
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-title {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .product-price {
+            font-size: 16px;
+            color: #e74c3c;
+        }
+
+        .card-img-top img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Estilos para el contenedor del efecto de carga */
+        .loader-container {
+            display: flex;
+            flex-direction: column; /* Alinea el texto y el círculo de carga verticalmente */
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo semi transparente */
+        }
+    </style>
 </head>
 
-<style>
-    body {
-        background-color: #f4f4f4;
-        font-family: Arial, sans-serif;
-    }
-
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
-    }
-
-    .product-card {
-        border: 1px solid #ddd;
-        padding: 10px;
-        margin-bottom: 20px;
-        background-color: white;
-        border-radius: 5px;
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-        transition: transform 0.2s;
-    }
-
-    .product-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    .product-title {
-        font-size: 18px;
-        margin: 10px 0;
-    }
-
-    .product-price {
-        font-size: 16px;
-        color: #e74c3c;
-    }
-
-    .card-img-top img {
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
-    }
-</style>
-
 <body class="container yellow-100">
+    <!-- Contenedor del efecto de carga (se mostrará mientras se cargan los productos) -->
+    <div class="loader-container">
+        <div class="loading-text">Loading...</div>
+        <div class="loader"></div>
+    </div>
+
+    <!-- Resto de tu contenido HTML (se ocultará mientras se carga) -->
+
     <nav class="navbar navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand"><button class="btn btn-light"><i
@@ -75,6 +97,9 @@
     </div>
 
     <script>
+        // ... Tu código JavaScript existente ...
+
+        // Oculta el efecto de carga y muestra el contenido después de cargar los productos
         async function fetchProducts() {
             try {
                 const response = await fetch('https://api-products-spring-boot-production.up.railway.app/api/list-products');
@@ -100,6 +125,13 @@
                 `;
                     productList.innerHTML += card;
                 });
+
+                // Oculta el efecto de carga
+                const loaderContainer = document.querySelector(".loader-container");
+                loaderContainer.style.display = "none";
+
+                // Muestra el contenido de la tienda de productos
+                document.body.style.overflow = "visible";
             } catch (error) {
                 console.error('Error fetching products:', error);
             }
@@ -112,7 +144,6 @@
             console.log("click....");
         }
     </script>
-
 </body>
 
 </html>
