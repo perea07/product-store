@@ -34,7 +34,6 @@ body {
     color: #e74c3c;
 }
 
-/* Agrega la propiedad object-fit a las imágenes dentro de .card-img-top */
 .card-img-top img {
     object-fit: cover;
     width: 100%;
