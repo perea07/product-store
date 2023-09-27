@@ -1,74 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Store</title>
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1041/1041883.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="dist/css/app.css">
-    <style>
-        body {
-            background-color: #f4f4f4;
-            font-family: Arial, sans-serif;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .product-card {
-            border: 1px solid #ddd;
-            padding: 10px;
-            margin-bottom: 20px;
-            background-color: white;
-            border-radius: 5px;
-            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .product-title {
-            font-size: 18px;
-            margin: 10px 0;
-        }
-
-        .product-price {
-            font-size: 16px;
-            color: #e74c3c;
-        }
-
-        .card-img-top img {
-            object-fit: cover;
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Estilos para el contenedor del efecto de carga */
-        .loader-container {
-            display: flex;
-            flex-direction: column; /* Alinea el texto y el círculo de carga verticalmente */
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(255, 255, 255, 0.8); /* Fondo semi transparente */
-        }
-    </style>
+    <link rel="stylesheet" href="dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="dist/css/all.min.css">
 </head>
 
 <body class="container yellow-100">
@@ -78,8 +17,8 @@
         <div class="loader"></div>
     </div>
 
+    
     <!-- Resto de tu contenido HTML (se ocultará mientras se carga) -->
-
     <nav class="navbar navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand"><button class="btn btn-light"><i
@@ -96,54 +35,30 @@
         <div class="row container-fluid" id="product-list"></div>
     </div>
 
-    <script>
-        // ... Tu código JavaScript existente ...
 
-        // Oculta el efecto de carga y muestra el contenido después de cargar los productos
-        async function fetchProducts() {
-            try {
-                const response = await fetch('https://api-products-spring-boot-production.up.railway.app/api/list-products');
-                const data = await response.json();
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="title"></h5>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga in molestiae alias saepe illo voluptas rerum unde explicabo architecto, ullam iste nisi optio, odio quisquam impedit inventore numquam culpa. Earum esse assumenda at atque eius totam quo fugit optio placeat qui laudantium aut harum consequuntur, tempora incidunt cupiditate cumque quas voluptatem quia repellendus quisquam officia corporis. Illum qui ipsam, culpa laudantium recusandae tenetur nam! Officiis, molestiae nulla placeat sint repudiandae voluptatum, officia maiores accusantium ipsum hic repellendus. Impedit cupiditate incidunt reprehenderit dolore, eveniet unde assumenda tempora vero enim beatae quam officia aspernatur alias architecto quos hic porro, suscipit vel commodi atque. Eum laudantium animi vitae ullam nihil eaque ex perspiciatis quo, quasi sed blanditiis dolorum, quam eos minima quisquam optio aliquam maiores reprehenderit ratione placeat unde, omnis nemo natus. Molestiae ea itaque quibusdam quisquam fugiat possimus nostrum soluta enim quo eos. Perferendis hic aperiam qui dolorum quibusdam cumque laboriosam cum doloremque quam, voluptatum tempora aliquid pariatur minima officia quo quisquam expedita dolorem magnam natus. Consectetur qui praesentium, doloribus dolorem iure fuga ratione vel numquam voluptatibus beatae asperiores, accusamus dolores tempora, ducimus veniam magni nihil nisi excepturi pariatur ad exercitationem laudantium laborum. Ut dolor harum veritatis aspernatur quis explicabo at quam.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                const productList = document.getElementById('product-list');
-                productList.innerHTML = '';
-
-                data.forEach(product => {
-                    const card = `
-                    <div class="col-md-4 mb-4">
-                        <div class="card product-card">
-                            <img src="${product.img}" class="card-img-top" alt="${product.name}">
-                            <div class="card-body">
-                                <h5 class="card-title product-title">${product.name}</h5>
-                                <p class="card-text product-price">Price: $${product.price}</p>
-                                <button class="btn btn-success"><i class="fa-solid fa-minus"></i></button>
-                                0   
-                                <button class="btn btn-success"><i class="fa-solid fa-plus"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                    productList.innerHTML += card;
-                });
-
-                // Oculta el efecto de carga
-                const loaderContainer = document.querySelector(".loader-container");
-                loaderContainer.style.display = "none";
-
-                // Muestra el contenido de la tienda de productos
-                document.body.style.overflow = "visible";
-            } catch (error) {
-                console.error('Error fetching products:', error);
-            }
-        }
-
-        fetchProducts();
-
-        function buy(productName) {
-            console.log(productName);
-            console.log("click....");
-        }
-    </script>
+    <script src="dist/js/jquery-3.2.1.slim.min.js"></script>
+    <script src="dist/js/popper.min.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+    <script src="dist/js/app.js"></script>
 </body>
-
 </html>
