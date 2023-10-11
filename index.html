@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,28 +18,42 @@
         <div class="loader"></div>
     </div>
 
-    
+
     <!-- Resto de tu contenido HTML (se ocultará mientras se carga) -->
     <nav class="navbar navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand"><button class="btn btn-light"><i
                         class="fa-solid fa-cart-shopping fa-2xl"></i></button></a>
+            <a class="nav-item nav-link active" href="#">Categories <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="about.html" target="_blank">About</a>
             <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
+            <button class="btn btn-dark" type="submit">Login</button>
+            <button class="btn btn-dark" type="submit">Sing up</button>
+        </div>
+    </nav>
+
+    <!-- Navegador 2 -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="#">Home/<span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="#">Categories/</a>
+                <a class="nav-item nav-link" href="#"><strong>Fruits</strong></a>
+            </div>
         </div>
     </nav>
 
     <div class="">
-        <h1 class="text-center">Products</h1>
         <div class="row container-fluid" id="product-list"></div>
     </div>
 
 
     <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -46,7 +61,23 @@
                     <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p id="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga in molestiae alias saepe illo voluptas rerum unde explicabo architecto, ullam iste nisi optio, odio quisquam impedit inventore numquam culpa. Earum esse assumenda at atque eius totam quo fugit optio placeat qui laudantium aut harum consequuntur, tempora incidunt cupiditate cumque quas voluptatem quia repellendus quisquam officia corporis. Illum qui ipsam, culpa laudantium recusandae tenetur nam! Officiis, molestiae nulla placeat sint repudiandae voluptatum, officia maiores accusantium ipsum hic repellendus. Impedit cupiditate incidunt reprehenderit dolore, eveniet unde assumenda tempora vero enim beatae quam officia aspernatur alias architecto quos hic porro, suscipit vel commodi atque. Eum laudantium animi vitae ullam nihil eaque ex perspiciatis quo, quasi sed blanditiis dolorum, quam eos minima quisquam optio aliquam maiores reprehenderit ratione placeat unde, omnis nemo natus. Molestiae ea itaque quibusdam quisquam fugiat possimus nostrum soluta enim quo eos. Perferendis hic aperiam qui dolorum quibusdam cumque laboriosam cum doloremque quam, voluptatum tempora aliquid pariatur minima officia quo quisquam expedita dolorem magnam natus. Consectetur qui praesentium, doloribus dolorem iure fuga ratione vel numquam voluptatibus beatae asperiores, accusamus dolores tempora, ducimus veniam magni nihil nisi excepturi pariatur ad exercitationem laudantium laborum. Ut dolor harum veritatis aspernatur quis explicabo at quam.</p>
+                    <p id="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga in molestiae
+                        alias saepe illo voluptas rerum unde explicabo architecto, ullam iste nisi optio, odio quisquam
+                        impedit inventore numquam culpa. Earum esse assumenda at atque eius totam quo fugit optio
+                        placeat qui laudantium aut harum consequuntur, tempora incidunt cupiditate cumque quas
+                        voluptatem quia repellendus quisquam officia corporis. Illum qui ipsam, culpa laudantium
+                        recusandae tenetur nam! Officiis, molestiae nulla placeat sint repudiandae voluptatum, officia
+                        maiores accusantium ipsum hic repellendus. Impedit cupiditate incidunt reprehenderit dolore,
+                        eveniet unde assumenda tempora vero enim beatae quam officia aspernatur alias architecto quos
+                        hic porro, suscipit vel commodi atque. Eum laudantium animi vitae ullam nihil eaque ex
+                        perspiciatis quo, quasi sed blanditiis dolorum, quam eos minima quisquam optio aliquam maiores
+                        reprehenderit ratione placeat unde, omnis nemo natus. Molestiae ea itaque quibusdam quisquam
+                        fugiat possimus nostrum soluta enim quo eos. Perferendis hic aperiam qui dolorum quibusdam
+                        cumque laboriosam cum doloremque quam, voluptatum tempora aliquid pariatur minima officia quo
+                        quisquam expedita dolorem magnam natus. Consectetur qui praesentium, doloribus dolorem iure fuga
+                        ratione vel numquam voluptatibus beatae asperiores, accusamus dolores tempora, ducimus veniam
+                        magni nihil nisi excepturi pariatur ad exercitationem laudantium laborum. Ut dolor harum
+                        veritatis aspernatur quis explicabo at quam.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -56,9 +87,43 @@
         </div>
     </div>
 
+
+
+    <div class="card border-primary mb-3">
+        <div class="card-header">Form</div>
+        <div class="card-body text-primary">
+            <h5 class="card-title">Enter your details</h5>
+            <div class="">
+                <form class="py-2">
+                    <div class="form-group py-2">
+                        <label for="exampleInputEmail1">Name</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                            placeholder="Enter Name">
+                    </div>
+                    <div class="form-group py-2">
+                        <label for="exampleInputEmail1">LastName</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                            placeholder="Enter Last Name">
+                    </div>
+                    <div class="form-group py-2">
+                        <label for="exampleInputPassword1">Email</label>
+                        <input type="email" class="form-control" id="exampleInputPassword1" placeholder="Enter Email">
+                    </div>
+                    <div class="form-group py-2">
+                        <label for="exampleInputPassword1">Cellphone</label>
+                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Cellphone">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+
     <script src="js/jquery-3.2.1.slim.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/app.js"></script>
 </body>
+
 </html>
