@@ -9,47 +9,63 @@
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/all.min.css">
+
 </head>
 
-<body class="container yellow-100">
+<body>
+
     <!-- Contenedor del efecto de carga (se mostrará mientras se cargan los productos) -->
     <div class="loader-container">
         <div class="loading-text">Loading...</div>
         <div class="loader"></div>
     </div>
 
-
-    <!-- Resto de tu contenido HTML (se ocultará mientras se carga) -->
-    <nav class="navbar navbar-light bg-light">
+    <!-- Barra de navegación principal -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand"><button class="btn btn-light"><i
-                        class="fa-solid fa-cart-shopping fa-2xl"></i></button></a>
-            <a class="nav-item nav-link active" href="#">Categories <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="about.html" target="_blank">About</a>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            </form>
-            <button class="btn btn-dark" type="submit">Login</button>
-            <button class="btn btn-dark" type="submit">Sing up</button>
-        </div>
-    </nav>
-
-    <!-- Navegador 2 -->
-    <nav class="navbar navbar-expand-lg navbar-light">
-        
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="#">Home/<span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="#">Categories/</a>
-                <a class="nav-item nav-link" href="#"><strong>Fruits</strong></a>
+            <a class="navbar-brand" href="#"><i class="fas fa-shopping-cart fa-2x"></i></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html" target="_blank">About</a>
+                    </li>
+                </ul>
+                <form class="d-flex ms-auto">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-dark" type="submit">Search</button>
+                </form>
+                <button class="btn btn-dark me-2" type="button">Login</button>
+                <button class="btn btn-dark" type="button">Sign up</button>
             </div>
         </div>
     </nav>
 
-    <div class="">
-        <div class="row container-fluid" id="product-list"></div>
-    </div>
+    <!-- Navegador secundario -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="#">Home<span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="#">Categories</a>
+                    <a class="nav-item nav-link" href="#"><strong>Fruits</strong></a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
+    <!-- Contenido principal -->
+    <div class="container mt-4">
+        <div class="row" id="product-list">
+            <!-- Aquí coloca tus productos o contenido -->
+        </div>
+    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -58,68 +74,51 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="title"></h5>
-                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p id="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga in molestiae
-                        alias saepe illo voluptas rerum unde explicabo architecto, ullam iste nisi optio, odio quisquam
-                        impedit inventore numquam culpa. Earum esse assumenda at atque eius totam quo fugit optio
-                        placeat qui laudantium aut harum consequuntur, tempora incidunt cupiditate cumque quas
-                        voluptatem quia repellendus quisquam officia corporis. Illum qui ipsam, culpa laudantium
-                        recusandae tenetur nam! Officiis, molestiae nulla placeat sint repudiandae voluptatum, officia
-                        maiores accusantium ipsum hic repellendus. Impedit cupiditate incidunt reprehenderit dolore,
-                        eveniet unde assumenda tempora vero enim beatae quam officia aspernatur alias architecto quos
-                        hic porro, suscipit vel commodi atque. Eum laudantium animi vitae ullam nihil eaque ex
-                        perspiciatis quo, quasi sed blanditiis dolorum, quam eos minima quisquam optio aliquam maiores
-                        reprehenderit ratione placeat unde, omnis nemo natus. Molestiae ea itaque quibusdam quisquam
-                        fugiat possimus nostrum soluta enim quo eos. Perferendis hic aperiam qui dolorum quibusdam
-                        cumque laboriosam cum doloremque quam, voluptatum tempora aliquid pariatur minima officia quo
-                        quisquam expedita dolorem magnam natus. Consectetur qui praesentium, doloribus dolorem iure fuga
-                        ratione vel numquam voluptatibus beatae asperiores, accusamus dolores tempora, ducimus veniam
-                        magni nihil nisi excepturi pariatur ad exercitationem laudantium laborum. Ut dolor harum
-                        veritatis aspernatur quis explicabo at quam.</p>
+                    <p id="description">
+                        <!-- Contenido del modal -->
+                    </p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>
     </div>
 
-
-
-    <div class="card border-primary mb-3">
-        <div class="card-header">Form</div>
-        <div class="card-body text-primary">
-            <h5 class="card-title">Enter your details</h5>
-            <div class="">
-                <form class="py-2">
-                    <div class="form-group py-2">
-                        <label for="exampleInputEmail1">Name</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                            placeholder="Enter Name">
+    <!-- Formulario -->
+    <div class="container mt-4">
+        <div class="card border-primary mb-3">
+            <div class="card-header">Form</div>
+            <div class="card-body text-primary">
+                <h5 class="card-title">Enter your details</h5>
+                <form>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter Name">
                     </div>
-                    <div class="form-group py-2">
-                        <label for="exampleInputEmail1">LastName</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                            placeholder="Enter Last Name">
+                    <div class="mb-3">
+                        <label for="lastName" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name">
                     </div>
-                    <div class="form-group py-2">
-                        <label for="exampleInputPassword1">Email</label>
-                        <input type="email" class="form-control" id="exampleInputPassword1" placeholder="Enter Email">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter Email">
                     </div>
-                    <div class="form-group py-2">
-                        <label for="exampleInputPassword1">Cellphone</label>
-                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Cellphone">
+                    <div class="mb-3">
+                        <label for="cellphone" class="form-label">Cellphone</label>
+                        <input type="tel" class="form-control" id="cellphone" placeholder="Cellphone">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>
     </div>
-    </div>
 
+    <!-- Scripts JavaScript -->
     <script src="js/jquery-3.2.1.slim.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
